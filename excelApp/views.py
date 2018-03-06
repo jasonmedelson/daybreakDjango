@@ -3,6 +3,7 @@ from .models import tweettable, tweet
 from django.http import HttpResponse
 from bs4 import BeautifulSoup
 import urllib.request as urlreq
+import requests
 # Create your views here.
 
 def index(request):
@@ -28,8 +29,10 @@ def search(request):
             try:
                 url+=sort[link]
                 links.append(url)
-                req = urlreq.urlopen(url)
-                soup = BeautifulSoup(req)
+                # req = urlreq.urlopen(url)
+                url = url[:len(url)-2]
+                req = requests.get(url, verify=False)
+                soup = BeautifulSoup(req.content)
                 name = soup.find_all("span", {"class": "username"})
                 name= name[4].text.strip()
                 name = name[1:]
@@ -79,8 +82,6 @@ def search(request):
                 tweets.append(" ")
                 date.append(" ")
 
-
-        message = 'You searched for: '
     else:
         message = 'You submitted an empty form.'
         return HttpResponse(message)

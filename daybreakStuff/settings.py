@@ -77,8 +77,12 @@ WSGI_APPLICATION = 'daybreakStuff.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'd45mkhlqk6a5r6',
+        'USER': 'awriswtestykhf',
+        'PASSWORD': 'edd837c8edaede2fd9f7b91992dc02e8aa06411af05d71ebd2128d5fed87dae1',
+        'HOST': 'ec2-107-21-201-210.compute-1.amazonaws.com',
+        'PORT': '5432',
     }
 }
 

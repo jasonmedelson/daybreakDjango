@@ -1,8 +1,6 @@
 from django.shortcuts import render
 from .models import tweettable, tweet
 from django.http import HttpResponse
-import bs4
-from bs4 import *
 from bs4 import BeautifulSoup
 import urllib.request as urlreq
 # Create your views here.
